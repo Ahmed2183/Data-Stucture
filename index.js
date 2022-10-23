@@ -181,8 +181,9 @@ for (i = 0; i < stringData.length; i++) {
     // console.log(stringData[i]);
 }
 
-/* Direct(Basic) Recursion: Means Function apnay aap ko call krn:  Factorial of Number */
+/* Direct(Basic) Recursion: Means Function apnay aap ko call krn*/
 
+//Factorial of Number 
 function factorial(n) {
     if (n <= 1) {
         return 1;
@@ -193,6 +194,7 @@ function factorial(n) {
 }
 // console.log(factorial(6));
 
+//Example 2
 function apple(x) {
     console.log(x);
     if (x < 10) {
@@ -203,7 +205,6 @@ function apple(x) {
 // apple(0);
 
 /* Indirect Recursion: Means Doo functions ko apas mai call krna */
-
 let money = 100;
 let totalApple = 0;
 
