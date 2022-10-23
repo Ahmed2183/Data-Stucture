@@ -1,7 +1,7 @@
 /* Block Scope and Functional Scope Example of Variables */
 var com = "jkl";
 function add() {
-    if(com === "jkla") {
+    if (com === "jkla") {
         var com1 = "abc";
     }
     else {
@@ -9,10 +9,10 @@ function add() {
         // console.log(com);
     }
 
-//    for (let i = 0; i < 10; i++) {
-//     console.log(com);
+    //    for (let i = 0; i < 10; i++) {
+    //     console.log(com);
 
-//    }
+    //    }
 
 }
 
@@ -41,23 +41,6 @@ add();
 //         console.log("Not Prime")
 //     }
 // }
-
-
-
-/* Factorial of Number */
-
-function factorial(n)
-{
-    if(n<=1)
-    {
-        return 1;
-    }
-    else
-    {
-        return n * factorial(n-1);
-    }
-}
-// console.log(factorial(6));
 
 
 
@@ -192,8 +175,20 @@ for (i = 0; i < sortData.length; i++) {
 
 
 /* While Loop For String */
-let stringData = ["Batman","Ironman","Superman","Spiderman"];
+let stringData = ["Batman", "Ironman", "Superman", "Spiderman"];
 
-for(i = 0; i < stringData.length; i++) {
+for (i = 0; i < stringData.length; i++) {
     // console.log(stringData[i]);
 }
+
+/* Direct(Basic)  Recursion:  Factorial of Number */
+
+function factorial(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
+}
+// console.log(factorial(6));
