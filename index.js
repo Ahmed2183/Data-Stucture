@@ -5,8 +5,8 @@ function add() {
         var com1 = "abc";
     }
     else {
-        console.log(com1);
-        console.log(com);
+        // console.log(com1);
+        // console.log(com);
     }
 
 //    for (let i = 0; i < 10; i++) {
@@ -20,27 +20,27 @@ add();
 
 
 /* Prime Number */
-var num = parseInt(prompt("Enter a positive number: "))
-let isPrime = true;
+// var num = parseInt(prompt("Enter a positive number: "))
+// let isPrime = true;
 
-if(num === 1) {
-    console.log("Not a prime");
-}
+// if(num === 1) {
+//     console.log("Not a prime");
+// }
 
-else if(num > 1) {
-    for (let x = 2; x < num; x++) {
-        if(num % x == 0) {
-            isPrime = false;
-            break;
-        }
-    }
-    if(isPrime) {
-        console.log("Prime Number");
-    }
-    else {
-        console.log("Not Prime")
-    }
-}
+// else if(num > 1) {
+//     for (let x = 2; x < num; x++) {
+//         if(num % x == 0) {
+//             isPrime = false;
+//             break;
+//         }
+//     }
+//     if(isPrime) {
+//         console.log("Prime Number");
+//     }
+//     else {
+//         console.log("Not Prime")
+//     }
+// }
 
 
 
@@ -57,7 +57,7 @@ function factorial(n)
         return n * factorial(n-1);
     }
 }
-console.log(factorial(6));
+// console.log(factorial(6));
 
 
 
@@ -144,7 +144,7 @@ for (i = 0; i < dataMerge2.length; i++) {
     dataMerge3[dataMerge1.length + i] = dataMerge2[i];
 }
 
-console.log("Merge Data Using For-Loop", dataMerge3);
+// console.log("Merge Data Using For-Loop", dataMerge3);
 
 /* Merge Array Manually: Answer Get In With Soritng Using While Loop */
 let dataM1 = [3, 7, 12, 34, 56, 90];
@@ -172,7 +172,7 @@ while (d1 < dataM1.length) {
     d3++;
 }
 
-console.log("Merge Data Using While-Loop", dataM3);
+// console.log("Merge Data Using While-Loop", dataM3);
 
 
 /* Sorting Array using Nested Loop */
@@ -188,12 +188,12 @@ for (i = 0; i < sortData.length; i++) {
         // console.log(sortData);
     }
 }
-console.log("Sorted Array", sortData);
+// console.log("Sorted Array", sortData);
 
 
 /* While Loop For String */
 let stringData = ["Batman","Ironman","Superman","Spiderman"];
 
 for(i = 0; i < stringData.length; i++) {
-    console.log(stringData[i]);
+    // console.log(stringData[i]);
 }
