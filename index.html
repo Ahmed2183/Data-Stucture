@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .intro {
+            background-color: yellow;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            [class*="intro"] {
+                /* width: 100%; */
+                background-color: red;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            [class*="simptext"] {
+                /* width: 100%; */
+                color: red;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <button class="intro">Click Me</button>
+</body>
+
+</html>
