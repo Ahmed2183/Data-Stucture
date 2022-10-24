@@ -66,14 +66,15 @@ function getElement(value) {
 // getElement(-3);
 // getElement("ddd");
 
-/* Inserting Array Elements */
+/* Inserting Array Elements in Starting,Ending,Middle */
 function insertElement(insertPosition, value) {
     /* In this For-Loop We Traversing(Read) Elements In Reverse */
-    for (i = data.length - 1; i >= 0; i--) {
+    for (i = data.length; i >= 0; i--) {  /* Reverse islia q k end mai new index add krsktay hai par start mai nhi */
         if (i >= insertPosition) {
             data[i + 1] = data[i];
             if (i === insertPosition) {
                 data[i] = value;
+                data.length = data.length - 1;  /* --> For insert element in last of array */
             }
         }
     }
