@@ -86,6 +86,8 @@ function insertElement(insertPosition, value) {
 /* Deleting Array Elements */
 
 /* Array kai mid sa element remove nhi krstay*/
+
+/* Delete By index */
 function deleteElement(deletePosition) {
     for (i = deletePosition; i < data.length - 1; i++) {
         data[i] = data[i + 1];  /* --> data[3] = data[3 + 1] ---> data[3] = data[4] ---> means 3 index pr index 4 ki value replace krdo, replace k baad next index ki values agay movie hojai gi r last index ki value ki copy ban jai gi */
@@ -96,10 +98,34 @@ function deleteElement(deletePosition) {
 
 // deleteElement(3);
 
+/* Delete By Value */
+
+let indexNum = -1;
+
+function deleteElement(value) {
+    for(i = 0; i < data.length; i++) {
+        if(data[i] === value) {
+            indexNum = i;
+            break;
+        }
+    }
+    
+    if(index != -1) {
+        for(i = indexNum; i < data.length - 1; i++) {
+          data[i] = data[i+1];  
+        }
+          for(i = 0; i < data.length - 1; i++){
+            console.log(data[i]);
+          }
+    }
+}
+
+deleteElement(6);
+
 /* Search Array Elements */
 let data1 = [1, 3, 6, 8, 9, 3, 1, 1, 1];
-let index1;
 let index = [];
+let index1;
 let index2 = 0;
 
 function searchElement(searchValue) {
