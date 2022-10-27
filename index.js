@@ -47,6 +47,7 @@ add();
 let data = [1, 3, 6, 8, 9];
 // console.log(data.length-1);
 
+
 /* Traversing(Read) Elements */
 for (i = 0; i < data.length; i++) {
     document.write(`Index of Array is ${i} and value is ${data[i]} <br>`)
@@ -66,6 +67,7 @@ function getElement(value) {
 // getElement(-3);
 // getElement("ddd");
 
+
 /* Inserting Array Elements in Starting,Ending,Middle */
 function insertElement(insertPosition, value) {
     /* In this For-Loop We Traversing(Read) Elements In Reverse */
@@ -83,6 +85,7 @@ function insertElement(insertPosition, value) {
 
 // insertElement(4, 4000);
 
+
 /* Deleting Array Elements */
 
 /* Array kai mid sa element remove nhi krstay*/
@@ -98,29 +101,30 @@ function deleteElement(deletePosition) {
 
 // deleteElement(3);
 
-/* Delete By Value */
 
+/* Delete By Value */
 let indexNum = -1;
 
 function deleteElement(value) {
-    for(i = 0; i < data.length; i++) {
-        if(data[i] === value) {
+    for (i = 0; i < data.length; i++) {
+        if (data[i] === value) {
             indexNum = i;
             break;
         }
     }
-    
-    if(index != -1) {
-        for(i = indexNum; i < data.length - 1; i++) {
-          data[i] = data[i+1];  
+
+    if (index != -1) {
+        for (i = indexNum; i < data.length - 1; i++) {
+            data[i] = data[i + 1];
         }
-          for(i = 0; i < data.length - 1; i++){
+        for (i = 0; i < data.length - 1; i++) {
             console.log(data[i]);
-          }
+        }
     }
 }
 
-deleteElement(6);
+// deleteElement(6);
+
 
 /* Search Array Elements */
 let data1 = [1, 3, 6, 8, 9, 3, 1, 1, 1];
@@ -135,10 +139,10 @@ function searchElement(searchValue) {
             /* This for Add in variable index1*/
             // index1 = i;  
 
-           /* This for array index*/
+            /* This for array index*/
             index[index2] = i;
             index2++;
-            
+
             // break; /* --> Agar array mai duplicate data na hu tab break use kro element search krna k baad aga check nhi kra ga or console loop k bhr use hoga, duplicate data mai break use na krna par last element/index return hoga output mai*/
         }
     }
@@ -163,6 +167,7 @@ for (i = 0; i < dataMerge2.length; i++) {
 }
 
 // console.log("Merge Data Using For-Loop", dataMerge3);
+
 
 /* Merge Array Manually: Answer Get In With Soritng Using While Loop */
 let dataM1 = [3, 7, 12, 34, 56, 90];
@@ -216,6 +221,7 @@ for (i = 0; i < stringData.length; i++) {
     // console.log(stringData[i]);
 }
 
+
 /* Direct(Basic) Recursion: Means Function apnay aap ko call krn*/
 
 //Factorial of Number 
@@ -239,6 +245,7 @@ function apple(x) {
 
 // apple(0);
 
+
 /* Indirect Recursion: Means Doo functions ko apas mai call krna */
 let money = 100;
 let totalApple = 0;
@@ -258,4 +265,96 @@ function buyMore(x) {
     buyApple(x - 5);
 }
 
-buyApple(money);
+// buyApple(money);
+
+
+/* Head Recursion and Tail Recursion */
+
+/* -->Head Recursion means function kay apnay aap sa call krnay sa phelay koi operation perform krna,
+   -->Tail Recursion means function kay apnay aap sa call krnay ka baad koi operation perform krna,
+   --> In Head Recursion and Tail Recursion both outputs are different 
+*/
+
+function test(x) {
+    console.log(x);  /* --> Operation perform before the recursion function calling */
+    if (x > 0) {
+        test(x - 1);  /* test is recursion fucntion that call itself */
+    }
+    // console.log(x);  /* --> Operation perform after the recursion function calling */
+}
+
+// test(5);
+
+
+/*  Reverse array with Recursion */
+let temp;
+
+function recursionReverse(data, startIndex, endIndex) {
+    // console.log("Reverse array with Recursion:",data);
+    if (startIndex <= endIndex) {
+        temp = data[startIndex];
+        data[startIndex] = data[endIndex];
+        data[endIndex] = temp;
+        recursionReverse(data, startIndex + 1, endIndex - 1);
+    }
+}
+
+recursionReverse(data, 0, data.length - 1);
+
+/* OOP Concepts */
+
+/* Create student class */
+class student {
+    constructor(name, age) {  /* --> Constructor Method: Yai auto call hoga jab class ka object banay ga */
+        this.name = name;  /* --> Take variables with this keyword in constructor */
+        this.age = age;
+        // console.log("Constructor Method Called");
+    }
+
+    hello() {  /* --> Prototype Method */
+        let secondName = 'Raza';
+        // console.log(`My first name is ${this.name} and second name is ${secondName} and age is ${this.age}`);
+    }
+
+    static abc() {  /* --> Static Method */
+        // console.log("Static Method Called")
+    }
+}
+
+let classObj = new student("Ahmed", 25);  /* --> Create class Object, We also create multiple objects of same class */
+classObj.hello();  /* --> Prototype Method Call */
+
+let secondObj = new student("Raza", 25);  /* --> 2nd object of class student */
+secondObj.hello();  /* --> Prototype Method Call */
+
+
+student.abc();  /* --> Static Method Call. Call with class name not with class object otherwise error */
+
+
+/* Inheritance Examples */
+
+class one {
+    constructor(name) {
+        this.name = name;
+        console.log("Constructor one Called");
+    }
+
+    info() {
+        console.log(`In class one my name is ${this.name}`);
+    }
+}
+
+class two extends one {  /* --> class two inherit with one class, extends keyword is use for to inheritance class */
+    // constructor(name) {
+    //     super();  /* --> super() is used to call class one constructor */
+    //     console.log("Constructor two Called", name);
+    // }
+
+    info() {
+        console.log(`In class two my name is ${this.name}`);
+        super.info();  /* Call class one info() method */
+    }
+}
+
+let a = new two("Ahmed");
+a.info();
