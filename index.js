@@ -383,4 +383,38 @@ var counts = {};
 for (var i = 0; i < array.length; i++) {
     counts[array[i]] = (counts[array[i]] + 1) || 1;  /* --> If element not exist then add 1 else + 1 */
 }
-console.log(counts);
+// console.log(counts);
+
+
+/* Stack(LIFO) Example */
+let stack = [];
+let stackLength = stack.length;
+let maxValue = 5;
+
+function push(value) {  /* Add element in array */
+    if (stackLength >= maxValue) {
+        console.log("Stack is full you not enter:", value)
+    }
+    else {
+        stack[stackLength] = value;
+        stackLength++;
+    }
+}
+
+push(5); push(10); push(15); push(20); push(25);
+
+function pop() {  /* Remove element from array */
+    if(stackLength > 0) {
+        stackLength--;
+        stack.length = stackLength;
+    }
+    else {
+        console.log("Stack is already empty");
+    }
+}
+
+// pop(); pop(); pop(); pop(); pop();
+
+// console.log(stack);
+
+
