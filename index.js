@@ -401,12 +401,14 @@ function push(value) {  /* Add element in array */
     }
 }
 
-push(5); push(10); push(15); push(20); push(25);
+// push(5); push(10); push(15); push(20); push(25);
 
 function pop() {  /* Remove element from array */
-    if(stackLength > 0) {
+    if (stackLength > 0) {
+        lastRemovedItem = stack[stackLength - 1];  /* --> Store removing element in variable, this line is for Reverse String code */
         stackLength--;
         stack.length = stackLength;
+        return lastRemovedItem;
     }
     else {
         console.log("Stack is already empty");
@@ -417,4 +419,86 @@ function pop() {  /* Remove element from array */
 
 // console.log(stack);
 
+
+
+/* Reverse String with Stack */
+function reverseString(item) {
+    for (i = 0; i < item.length; i++) {
+        push(item[i]);  /* --> push is function on above */
+    }
+    for (i = 0; i < item.length; i++) {
+        item[i] = pop();  /* --> pop is function on above, Get string in reverse */
+        // pop(); /* --> Get string in straight */
+    }
+}
+
+let str = 'Ahmed';
+str = str.split("");  /* --> Convert string into array */
+// console.log("String Before Reverse in Array",str);
+
+reverseString(str);
+// console.log("String After Reverse",str.join(""));  /* --> Convert array into string */
+// console.log("String After Reverse in Array",str);
+
+
+/* Class Example: Reverse String with Stack */
+class Stack {
+    item = [];
+    currentSize;
+    maxSize;
+    constructor(size) {
+        this.maxSize = size;
+        this.currentSize = this.item.length;
+    }
+    push(value) {
+        if (this.currentSize >= this.maxSize) {
+            console.log("Stack is full you not enter:", value)
+        }
+        else {
+            this.item[this.currentSize] = value;
+            this.currentSize++;
+        }
+    }
+
+    pop() {
+        if (this.currentSize > 0) {
+            let lastRemovedItem = this.item[this.currentSize - 1];
+            this.currentSize--;
+            this.item.length = this.currentSize;
+            return lastRemovedItem;
+        }
+        else {
+            console.log("Stack is already empty");
+        }
+    }
+
+    reverseString(element) {
+        for (i = 0; i < element.length; i++) {
+            this.push(element[i]);
+        }
+
+        for (i = 0; i < element.length; i++) {
+            element[i] = this.pop();
+        }
+    }
+
+    display() {
+        // console.log(this.item);
+    }
+}
+
+let obj = new Stack(5);
+
+let str1 = 'Ahmed';
+str1 = str1.split("");
+
+
+obj.reverseString(str1);
+// console.log("String After Reverse", str1.join(""));  /* --> Convert array into string */
+// console.log("String After Reverse in Array", str1);
+
+// obj.push(10); obj.push(20); obj.push(30); obj.push(40); obj.push(50);
+// obj.pop();
+
+obj.display();
 
