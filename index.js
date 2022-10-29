@@ -538,3 +538,29 @@ function popQ() {  /* Remove element from array */
 
 // console.log(queue);
 
+
+
+/* Front and Rear operations Queue */
+// Front means first element of Queue and Rear means last element of Queue
+
+function front() {
+    if (queueLength > 0) {
+        console.log("Front Output",queue[0]);
+    }
+    else {
+        console.log("Queue is empty");
+    }
+}
+
+function rear() {
+    if (queueLength > 0) {
+        console.log("Rear Output:",queue[queueLength - 1]);
+    }
+    else {
+        console.log("Queue is empty");
+    }
+}
+
+// front();
+// rear();
+// console.log(queue);
