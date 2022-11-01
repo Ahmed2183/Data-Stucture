@@ -126,7 +126,7 @@ function deleteElement(value) {
 // deleteElement(6);
 
 
-/* Search Array Elements */
+/* Linear Search Array Elements */
 let data1 = [1, 3, 6, 8, 9, 3, 1, 1, 1];
 let index = [];
 let index1;
@@ -611,3 +611,54 @@ let circular = new Queue(5);
 // circular.enqueue(5); circular.enqueue(10); circular.enqueue(15); circular.enqueue(20); circular.enqueue(25);
 // circular.dequeue();
 // console.log(circular);
+
+
+
+/* Binary Search: Iterative Approach */
+//Iterative Approach used in loop
+
+//Binray search only apply on sorting data, Binary search elements ko divide krdeta hai r mid point sa left right searching krta ha
+
+let arr = [3,6,9,12,15,22,25,30];
+let findIndex = 15;
+let startPoint = 0;
+let endPoint = arr.length - 1;
+let position = undefined;
+
+while (startPoint <= endPoint) {
+let midPoint = Math.floor((startPoint + endPoint) / 2);
+// console.log(arr[midPoint]);
+if(arr[midPoint] === findIndex) {
+    position = midPoint;
+    break;
+}
+else if(arr[midPoint] < findIndex) {
+    startPoint = midPoint + 1;
+}
+else {
+    endPoint = midPoint - 1;
+}
+}
+// console.log("Iterative Binary Search:",position);
+
+
+/* Binary Search: Recursive Approach */
+//Recursive Approach used in function, Recursive means function kaa apnay aap ko call krna
+
+function recursiveBinary(getArr,getStartPoint,getEndPoint) {
+    let midPoint = Math.floor((getStartPoint + getEndPoint) / 2);
+    // console.log(getArr[midPoint]);
+    if(getArr[midPoint] === findIndex) {
+        position = midPoint;
+        return true;
+    }
+    else if(getArr[midPoint] < findIndex) {
+        recursiveBinary(getArr,midPoint + 1,getEndPoint);
+    }
+    else {
+        recursiveBinary(getArr,getStartPoint,midPoint - 1);
+    }
+}
+
+recursiveBinary(arr,startPoint,endPoint);
+// console.log("Recursive Binary Search:",position);
