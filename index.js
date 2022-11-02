@@ -198,7 +198,7 @@ while (d1 < dataM1.length) {
 // console.log("Merge Data Using While-Loop", dataM3);
 
 
-/* Sorting Array using Nested Loop */
+/* Ascending Order Sorting Array using Nested Loop */
 let sortData = [6, 2, 9, 5, 1, 0, 13, 20];  /* Loop executes 8x8 = 64 here array length is 8 and 2 loops runing if 3 loops hoti then 8x8x8 */
 
 for (i = 0; i < sortData.length; i++) {
@@ -580,7 +580,7 @@ class Queue {
             if (this.rear == this.max - 1) {
                 this.rear = 0;
             } else {
-                this.rear++;
+                this.rear++;  // --> Increment in -1 is 0
             }
             this.item[this.rear] = val;
             this.currentSize++;
@@ -662,3 +662,21 @@ function recursiveBinary(getArr,getStartPoint,getEndPoint) {
 
 recursiveBinary(arr,startPoint,endPoint);
 // console.log("Recursive Binary Search:",position);
+
+
+
+/* Descending Order Sorting */
+
+let sort = [6, 2, 9, 5, 1, 0, 13, 20];  /* Loop executes 8x8 = 64 here array length is 8 and 2 loops runing if 3 loops hoti then 8x8x8 */
+
+for (i = 0; i < sort.length; i++) {
+    for (j = 0; j < sort.length; j++) {
+        if (sort[j] < sort[j + 1]) {   // --> less than (<) sign is for Descending Order and greater then (>) sign is for Ascending Order
+            let temp = sort[j];
+            sort[j] = sort[j + 1];
+            sort[j + 1] = temp;
+        }
+        // console.log(sort);
+    }
+}
+console.log("Sorted Array", sort);
