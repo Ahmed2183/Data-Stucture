@@ -619,25 +619,25 @@ let circular = new Queue(5);
 
 //Binray search only apply on sorting data, Binary search elements ko divide krdeta hai r mid point sa left right searching krta ha
 
-let arr = [3,6,9,12,15,22,25,30];
+let arr = [3, 6, 9, 12, 15, 22, 25, 30];
 let findIndex = 15;
 let startPoint = 0;
 let endPoint = arr.length - 1;
 let position = undefined;
 
 while (startPoint <= endPoint) {
-let midPoint = Math.floor((startPoint + endPoint) / 2);
-// console.log(arr[midPoint]);
-if(arr[midPoint] === findIndex) {
-    position = midPoint;
-    break;
-}
-else if(arr[midPoint] < findIndex) {
-    startPoint = midPoint + 1;
-}
-else {
-    endPoint = midPoint - 1;
-}
+    let midPoint = Math.floor((startPoint + endPoint) / 2);
+    // console.log(arr[midPoint]);
+    if (arr[midPoint] === findIndex) {
+        position = midPoint;
+        break;
+    }
+    else if (arr[midPoint] < findIndex) {
+        startPoint = midPoint + 1;
+    }
+    else {
+        endPoint = midPoint - 1;
+    }
 }
 // console.log("Iterative Binary Search:",position);
 
@@ -645,22 +645,22 @@ else {
 /* Binary Search: Recursive Approach */
 //Recursive Approach used in function, Recursive means function kaa apnay aap ko call krna
 
-function recursiveBinary(getArr,getStartPoint,getEndPoint) {
+function recursiveBinary(getArr, getStartPoint, getEndPoint) {
     let midPoint = Math.floor((getStartPoint + getEndPoint) / 2);
     // console.log(getArr[midPoint]);
-    if(getArr[midPoint] === findIndex) {
+    if (getArr[midPoint] === findIndex) {
         position = midPoint;
         return true;
     }
-    else if(getArr[midPoint] < findIndex) {
-        recursiveBinary(getArr,midPoint + 1,getEndPoint);
+    else if (getArr[midPoint] < findIndex) {
+        recursiveBinary(getArr, midPoint + 1, getEndPoint);
     }
     else {
-        recursiveBinary(getArr,getStartPoint,midPoint - 1);
+        recursiveBinary(getArr, getStartPoint, midPoint - 1);
     }
 }
 
-recursiveBinary(arr,startPoint,endPoint);
+recursiveBinary(arr, startPoint, endPoint);
 // console.log("Recursive Binary Search:",position);
 
 
@@ -680,3 +680,67 @@ for (i = 0; i < sort.length; i++) {
     }
 }
 // console.log("Descending Order Sorting Array", sort);
+
+
+/* Insertion Sort */
+
+let insertSort = [12, 11, 13, 5, 6];
+function insertionSort(data) {
+    let i, current, j;
+    for (i = 1; i < data.length; i++) {  //--> i start from 1 bcz we not compare 0 index value
+        current = data[i];
+        j = i - 1;
+        while (j >= 0 && data[j] > current) {
+            data[j + 1] = data[j];
+            j--;   //--> In insertion sort we compare values in reverse order
+        }
+        data[j + 1] = current;
+    }
+}
+
+insertionSort(insertSort);
+// console.log("Insertion Sort",insertSort);
+
+
+/* Sorting all array elements except one */
+
+let a1 = [10, 4, 11, 7, 6, 20];
+let k = 2;
+let n = a1.length;
+
+function sortExceptK(arr, k, n) {
+
+    // Move k-th element to end
+    let temp = arr[k];  
+    arr[k] = arr[n - 1];  
+    arr[n - 1] = temp; 
+
+    // Sort all elements except last
+    arr.sort(function (a, b) {
+        return a - b
+    });
+
+    // Store last element (originally k-th)
+    let last = arr[n - 1];
+
+    // Move all elements from k-th to one
+    // position ahead.
+    for (let i = n - 1; i > k; i--)
+        arr[i] = arr[i - 1];
+
+    // Restore k-th element
+    arr[k] = last;
+
+    // Move k-th element to end
+    temp = arr[k];
+    arr[k] = arr[n - 1];
+    arr[n - 1] = temp;
+
+    return 0;
+}
+
+
+sortExceptK(a1, k, n);
+// console.log("Sorting all array elements except one", a1)
+
+
