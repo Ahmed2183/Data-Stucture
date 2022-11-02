@@ -211,7 +211,7 @@ for (i = 0; i < sortData.length; i++) {
         // console.log(sortData);
     }
 }
-// console.log("Sorted Array", sortData);
+// console.log(" Ascending Order Sorting Array", sortData);
 
 
 /* While Loop For String */
@@ -679,4 +679,4 @@ for (i = 0; i < sort.length; i++) {
         // console.log(sort);
     }
 }
-console.log("Sorted Array", sort);
+// console.log("Descending Order Sorting Array", sort);
