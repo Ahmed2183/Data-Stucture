@@ -9,7 +9,7 @@ function checkAnagram(str1, str2) {
 
     for (ch of str1) {  // --> For-of loop
         //  console.log(ch);
-        ObjStr[ch] = (ObjStr[ch] || 0) + 1;  /* -->Counting of duplicte characters, If (ObjStr[ch] || 0) means ObjStr[ch] defined(agar phela sa object mai) ha ya zero ha tu plus 1 krday gi  */
+        ObjStr[ch] = (ObjStr[ch] || 0) + 1;  /* -->Counting of duplicte characters, If (ObjStr[ch] || 0) means ObjStr[ch] undefined ha tu zero hojai or zero ha tu tu plus 1 krday */
     }
     // console.log(ObjStr);
 
@@ -25,7 +25,8 @@ function checkAnagram(str1, str2) {
     return true;
 }
 
-console.log(checkAnagram("hello", "ehllo"));
+const check = checkAnagram("hello", "ehllo");
+console.log(check);
 // console.log(checkAnagram("hello", "ehllooo"));
 // console.log(checkAnagram("cat", "act"));
 // console.log(checkAnagram("cat", "tacc"));
