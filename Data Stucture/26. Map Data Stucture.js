@@ -6,7 +6,7 @@ let data = new Map([
     [100,'Number Key'],
 ]);
 
-/* Add new field */
+/* Add New Field */
 data.set('color','Green');
 
 /* Check Key Available in Map data or not */
@@ -14,6 +14,9 @@ data.set('color','Green');
 
 /* Get Key Value */
 // console.log(data.get(100));
+
+/* Delete Filed */
+// data.delete(100);
 
 /* To Clear All Data */
 // data.clear();
