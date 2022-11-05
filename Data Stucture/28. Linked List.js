@@ -19,16 +19,6 @@ class List {
         this.size++; // ---> Increase size
     }
 
-    traversing() {  // ---> Function to read all nodes
-        let counter = 1;
-        let currentNode = this.head;
-        while (counter <= this.size) {
-            console.log(currentNode);
-            currentNode = currentNode.next;
-            counter++;
-        }
-    }
-
     // insertNode(index,value) {
     //     let counter = 1;
     //     let currentNode = this.head;
@@ -43,7 +33,7 @@ class List {
     //     }
     // }
 
-    insertNode(Nodedata, pos) {
+    insertNode(Nodedata, pos) {  // ---> Function to insert node
         let lead = this.head;
         let counter = 1;
 
@@ -74,6 +64,16 @@ class List {
 
         this.size++;
 
+    }
+
+    traversing() {  // ---> Function to read all nodes
+        let counter = 1;
+        let currentNode = this.head;
+        while (counter <= this.size) {
+            console.log(currentNode);
+            currentNode = currentNode.next;
+            counter++;
+        }
     }
 
     // updateNode(node, value) {  // ---> Update Node
@@ -119,9 +119,9 @@ list.appendNode(3);
 list.appendNode(4);
 list.appendNode(5);
 
-list.insertNode(100,4)
+// list.insertNode(100, 2)
 
-list.traversing();
+// list.traversing();
 
 // list.updateNode(300, 1000);
 
