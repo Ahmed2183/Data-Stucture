@@ -18,6 +18,16 @@ class List {
         this.tail = newNode;  // --->Assign into this.tail, jo last node hogi wohi tail hoga
         this.size++; // ---> Increase size
     }
+
+    traversing() {  // ---> Read All Nodes
+     let counter = 0;
+     let currentNode = this.head;
+     while(counter < this.size) {
+        console.log(currentNode);
+        currentNode = currentNode.next;
+        counter++;
+     }
+    }
 }
 
 let list = new List(100);
@@ -27,4 +37,6 @@ list.appendNode(300);
 list.appendNode(400);
 list.appendNode(500);
 
-console.log(list)
+list.traversing();
+
+console.log(list);
