@@ -19,20 +19,6 @@ class List {
         this.size++; // ---> Increase size
     }
 
-    // insertNode(index,value) {
-    //     let counter = 1;
-    //     let currentNode = this.head;
-    //     while(counter > index) {
-    //         counter++;
-    //         currentNode = currentNode.next;
-    //     }
-    //     let nextNode = currentNode.next;
-    //     currentNode.next = {
-    //         value:value,
-    //         next:nextNode
-    //     }
-    // }
-
     insertNode(Nodedata, pos) {  // ---> Function to insert node
         let lead = this.head;
         let counter = 1;
@@ -61,9 +47,7 @@ class List {
             newNode.next = nextOfLead;
             lead.next = newNode;
         }
-
         this.size++;
-
     }
 
     traversing() {  // ---> Function to read all nodes
@@ -110,16 +94,40 @@ class List {
         }
         this.size--;
     }
+
+    searchNodeByValue(val) { // ---> Function to search node, By Value
+        let curr = this.head;
+        let counter = 1;
+        while (counter <= this.size && curr.value != val) {
+            curr = curr.next;
+            counter++;
+        }
+        if (counter > this.size) return console.log(`Node with value ${val} is not present`)
+        console.log("Result Node by value is :", curr);
+    }
+
+    seaarchNodeByElement(elm) { // ---> Function to search node, By Element
+        let counter = 1;
+        let curr = this.head;
+        while (counter <= this.size && counter < elm) {
+            curr = curr.next
+            counter++;
+        }
+        if (counter > this.size) return console.log(`Node Search out of bound`)
+
+        console.log("Result Node by element is : ", curr)
+
+    }
 }
 
-let list = new List(1);
+let list = new List(100);
 
-list.appendNode(2);
-list.appendNode(3);
-list.appendNode(4);
-list.appendNode(5);
+list.appendNode(200);
+list.appendNode(300);
+list.appendNode(400);
+list.appendNode(500);
 
-// list.insertNode(100, 2)
+// list.insertNode(500, 2);
 
 // list.traversing();
 
@@ -127,5 +135,8 @@ list.appendNode(5);
 
 // list.deleteNode(4);
 
+// list.searchNodeByValue(300);
 
-console.log(list);
+// list.seaarchNodeByElement(2);
+
+// console.log(list);
