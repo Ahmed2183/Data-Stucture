@@ -9,7 +9,7 @@ class List {
         this.size = 1;  // ---> For Check size
     }
 
-    appendNode(nodeData) { // ---> Function
+    appendNode(nodeData) { // ---> Function to add node in last
         let newNode = { // ---> Object
             value: nodeData,
             next: null
@@ -19,14 +19,61 @@ class List {
         this.size++; // ---> Increase size
     }
 
-    traversing() {  // ---> Read All Nodes
-        let counter = 0;
+    traversing() {  // ---> Function to read all nodes
+        let counter = 1;
         let currentNode = this.head;
-        while (counter < this.size) {
+        while (counter <= this.size) {
             console.log(currentNode);
             currentNode = currentNode.next;
             counter++;
         }
+    }
+
+    // insertNode(index,value) {
+    //     let counter = 1;
+    //     let currentNode = this.head;
+    //     while(counter > index) {
+    //         counter++;
+    //         currentNode = currentNode.next;
+    //     }
+    //     let nextNode = currentNode.next;
+    //     currentNode.next = {
+    //         value:value,
+    //         next:nextNode
+    //     }
+    // }
+
+    insertNode(Nodedata, pos) {
+        let lead = this.head;
+        let counter = 1;
+
+        let newNode = {
+            value: Nodedata,
+            next: null
+        }
+        if (pos == 1) {
+            newNode.next = lead;
+            this.head = newNode;
+        }
+        else if (pos == this.size) {
+
+            this.appendNode(Nodedata);
+            this.size--;
+        }
+        else {
+            while (counter < pos - 1) {
+
+                lead = this.head.next;
+                counter++;
+            }
+            let nextOfLead = lead.next;
+            newNode.value = Nodedata;
+            newNode.next = nextOfLead;
+            lead.next = newNode;
+        }
+
+        this.size++;
+
     }
 
     // updateNode(node, value) {  // ---> Update Node
@@ -42,7 +89,7 @@ class List {
     //     }
     // }
 
-    deleteNode(index) {
+    deleteNode(index) {  // ---> Function to delete node
         let counter = 1;
         let leadNode = this.head;   // ---> leadNode means head node sa phela wali node
         // console.log("First Time Head Node is:", this.head);
@@ -61,20 +108,24 @@ class List {
             leadNode.next = nextNode;
             console.log(leadNode)
         }
+        this.size--;
     }
 }
 
-let list = new List(100);
+let list = new List(1);
 
-list.appendNode(200);
-list.appendNode(300);
-list.appendNode(400);
-list.appendNode(500);
+list.appendNode(2);
+list.appendNode(3);
+list.appendNode(4);
+list.appendNode(5);
+
+list.insertNode(100,4)
+
+list.traversing();
 
 // list.updateNode(300, 1000);
 
-list.deleteNode(4);
+// list.deleteNode(4);
 
-// list.traversing();
 
 console.log(list);
