@@ -31,7 +31,7 @@ class List {
             newNode.next = lead;
             this.head = newNode;
         }
-        else if (pos == this.size) {
+        else if (pos > this.size) {
 
             this.appendNode(Nodedata);
             this.size--;
@@ -39,7 +39,7 @@ class List {
         else {
             while (counter < pos - 1) {
 
-                lead = this.head.next;
+                lead = lead.next;
                 counter++;
             }
             let nextOfLead = lead.next;
@@ -60,18 +60,18 @@ class List {
         }
     }
 
-    // updateNode(node, value) {  // ---> Update Node
-    //     let counter = 0;
-    //     let currentNode = this.head;
-    //     while (counter < this.size) {
-    //         if (currentNode.value === node) {
-    //             currentNode.value = value;
-    //             console.log(`Node ${node} updated to ${value} :`,list);
-    //         }
-    //         currentNode = currentNode.next;
-    //         counter++;
-    //     }
-    // }
+    updateNode(index, value) {  // ---> Update Node
+        let counter = 1;
+        let curr = this.head;
+        while (counter <= this.size && counter < index) {
+            curr = curr.next
+            counter++;
+        }
+        if (counter > this.size) return console.log(`Node Search out of bound`)
+
+        curr.value = value;
+        // console.log("Result Node by element is : ", curr);
+    }
 
     deleteNode(index) {  // ---> Function to delete node
         let counter = 1;
@@ -106,7 +106,7 @@ class List {
         console.log("Result Node by value is :", curr);
     }
 
-    seaarchNodeByElement(elm) { // ---> Function to search node, By Element
+    searchNodeByElement(elm) { // ---> Function to search node, By Element
         let counter = 1;
         let curr = this.head;
         while (counter <= this.size && counter < elm) {
@@ -115,7 +115,7 @@ class List {
         }
         if (counter > this.size) return console.log(`Node Search out of bound`)
 
-        console.log("Result Node by element is : ", curr)
+        console.log("Result Node by element is : ", curr);
 
     }
 }
@@ -127,16 +127,17 @@ list.appendNode(300);
 list.appendNode(400);
 list.appendNode(500);
 
-// list.insertNode(500, 2);
+// list.insertNode(600, 6);
+// list.insertNode(600, 7);
 
-// list.traversing();
-
-// list.updateNode(300, 1000);
+// list.updateNode(4, 1000);
 
 // list.deleteNode(4);
 
 // list.searchNodeByValue(300);
 
-// list.seaarchNodeByElement(2);
+// list.searchNodeByElement(2);
 
-// console.log(list);
+list.traversing();
+
+console.log(list);
