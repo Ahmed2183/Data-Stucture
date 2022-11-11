@@ -50,6 +50,22 @@ class BinaryTree {
         }
     }
 
+    searchNode(root, val) {
+        // console.log(root.left);
+        if (root === null) {
+            return false;
+        }
+        else if (root.value === val) {
+            return true;
+        }
+        else if (root.value > val) {
+            return this.searchNode(root.left, val);
+        }
+        else {
+            return this.searchNode(root.right, val);
+        }
+    }
+
 }
 
 let tree = new BinaryTree();
@@ -61,5 +77,10 @@ tree.makeTree(30);
 tree.makeTree(40);
 tree.makeTree(23);
 
+console.log(tree.searchNode(tree.root, 10));
+// console.log(tree.searchNode(tree.root, 30));
+// console.log(tree.searchNode(tree.root, 100));
+
 // console.log(tree.isTreeEmpty());
+
 console.log(tree);
