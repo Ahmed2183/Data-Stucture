@@ -37,7 +37,7 @@ class BinaryTree {
                 root.left = newNode;
             }
             else {
-                this.insertNode(root.left, newNode);  // --> Recursion of insertNode function
+                this.insertNode(root.left, newNode);  // --> Recursion of insertNode function, insert into like this root.left.left and soo on...
             }
         }
         else {
