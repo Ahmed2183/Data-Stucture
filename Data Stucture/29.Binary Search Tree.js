@@ -103,7 +103,26 @@ class BinaryTree {
             if (current.right) {
                 queue.push(current.right);
             }
-            console.log("Breadth First Search:",current.value);
+            console.log("Breadth First Search:", current.value);
+        }
+    }
+
+    /* Find Minimum and Maximum Value In Tree */
+    minimumValue(root) {   /* All mimimum value on Left Side of Node */
+        if (!root.left) {
+            return root.value;
+        }
+        else {
+            return this.minimumValue(root.left);
+        }
+    }
+
+    maximumValue(root) { /* All maximum value on Right Side of Node */
+        if (!root.right) {
+            return root.value;
+        }
+        else {
+            return this.maximumValue(root.right);
         }
     }
 }
@@ -126,6 +145,9 @@ tree.makeTree(23);
 // tree.inOrder(tree.root);
 
 // tree.breadthFirst();
+
+// console.log("Minimum Value of Tree is:",tree.minimumValue(tree.root));
+// console.log("Maximum Value of Tree is:",tree.maximumValue(tree.root));
 
 // console.log(tree.isTreeEmpty());
 
