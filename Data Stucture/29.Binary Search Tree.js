@@ -66,6 +66,29 @@ class BinaryTree {
         }
     }
 
+    preOrder(root) {
+        if (root) {
+            console.log("Pre-Order:", root.value);
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+        }
+    }
+
+    postOrder(root) {
+        if (root) {
+            this.postOrder(root.left);
+            this.postOrder(root.right);
+            console.log("Post-Order:", root.value);
+        }
+    }
+
+    inOrder(root) {
+        if (root) {
+            this.inOrder(root.left);
+            console.log("In-Order:", root.value);
+            this.inOrder(root.right);
+        }
+    }
 }
 
 let tree = new BinaryTree();
@@ -77,10 +100,14 @@ tree.makeTree(30);
 tree.makeTree(40);
 tree.makeTree(23);
 
-console.log(tree.searchNode(tree.root, 10));
+// console.log(tree.searchNode(tree.root, 10));
 // console.log(tree.searchNode(tree.root, 30));
 // console.log(tree.searchNode(tree.root, 100));
 
+// tree.preOrder(tree.root);
+// tree.postOrder(tree.root);
+// tree.inOrder(tree.root);
+
 // console.log(tree.isTreeEmpty());
 
-console.log(tree);
+// console.log(tree);
