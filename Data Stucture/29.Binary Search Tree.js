@@ -66,6 +66,7 @@ class BinaryTree {
         }
     }
 
+    /*  Depth First Search */
     preOrder(root) {
         if (root) {
             console.log("Pre-Order:", root.value);
