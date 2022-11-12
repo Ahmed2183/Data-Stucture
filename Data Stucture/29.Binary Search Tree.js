@@ -90,6 +90,22 @@ class BinaryTree {
             this.inOrder(root.right);
         }
     }
+
+    /* Breadth First Search */
+    breadthFirst() {
+        let queue = [];
+        queue.push(this.root);
+        while (queue.length) {
+            let current = queue.shift();
+            if (current.left) {
+                queue.push(current.left);
+            }
+            if (current.right) {
+                queue.push(current.right);
+            }
+            console.log("Breadth First Search:",current.value);
+        }
+    }
 }
 
 let tree = new BinaryTree();
@@ -108,6 +124,8 @@ tree.makeTree(23);
 // tree.preOrder(tree.root);
 // tree.postOrder(tree.root);
 // tree.inOrder(tree.root);
+
+// tree.breadthFirst();
 
 // console.log(tree.isTreeEmpty());
 
