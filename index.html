@@ -27,56 +27,70 @@
             height: 100%;
             object-fit: contain;
         }
+
+        .dynamic {
+            /* Change color of text if class name is dynamic, we change class name in javascript code */
+            color: red;
+        }
     </style>
-    
-    <!-- Java Script Files -->
-    <!-- <script src="./JavaScript/Block Scope and Functional Scope.js"></script> -->
-    
-    <!-- Data Stuctures Files -->
-    <!-- <script src="./Data Stucture/Prime Number.js"></script> -->
-    <!-- <script src="./Data Stucture/Display String.js"></script> -->
-    <!-- <script src="./Data Stucture/Factorial Number.js"></script> -->
-    <!-- <script src="./Data Stucture/OOP Concepts.js"></script> -->
-    <!-- <script src="./Data Stucture/Even Values from Array.js"></script> -->
-    <!-- <script src="./Data Stucture/Counting of Duplicate Elements.js"></script> -->
+
+    <!-- HTML Code. Note Write HTML Code before <script> tag otherwise DOM proper not working, 2nd method use addEventListener in JavaScript code -->
+
+<body>
+    <button id="mybtn" class="intro">Click Me</button>
+    <p id="myName">Ahmed</p>
+    <h1 class="head">Hello Word1</h1>
+    <h1 class="head">Hello Word2</h1>
+    <h1 class="head">Hello Word3</h1>
+    <h1 class="head">Hello Word4</h1>
+    <h1 class="head">Hello Word5</h1>
+    <h1 class="dom">Hello Word6</h1>
+</body>
+
+<!-- Java Script Files -->
+<script src="./JavaScript/Block Scope and Functional Scope.js"></script>
+
+<!-- Data Stuctures Files -->
+<!-- <script src="./Data Stucture/Prime Number.js"></script> -->
+<!-- <script src="./Data Stucture/Display String.js"></script> -->
+<!-- <script src="./Data Stucture/Factorial Number.js"></script> -->
+<!-- <script src="./Data Stucture/OOP Concepts.js"></script> -->
+<!-- <script src="./Data Stucture/Even Values from Array.js"></script> -->
+<!-- <script src="./Data Stucture/Counting of Duplicate Elements.js"></script> -->
 
 
-    <!-- <script src="./Data Stucture/1. Traversing(Read) and Accessing Array Elements.js"></script> -->
-    <!-- <script src="./Data Stucture/2. Inserting Array Elements.js"></script> -->
-    <!-- <script src="./Data Stucture/3. Delete Array Elements.js"></script> -->
-    <!-- <script src="./Data Stucture/4. Linear Search Array Elements.js"></script> -->
-    <!-- <script src="./Data Stucture/5. Merge Array Without Sorting.js"></script> -->
-    <!-- <script src="./Data Stucture/6. Merge Array With Sorting.js"></script> -->
-    <!-- <script src="./Data Stucture/7. Ascending Order Sorting Array.js"></script> -->
-    <!-- <script src="./Data Stucture/8. Direct(Basic) Recursion.js"></script> -->
-    <!-- <script src="./Data Stucture/9. InDirect Recursion.js"></script> -->
-    <!-- <script src="./Data Stucture/10. Head and Tail Recursion.js"></script> -->
-    <!-- <script src="./Data Stucture/11. Reverse Array With Recursion.js"></script> -->
-    <!-- <script src="./Data Stucture/12. Stack(LIFO).js"></script> -->
-    <!-- <script src="./Data Stucture/13. Reverse String With Stack.js"></script> -->
-    <!-- <script src="./Data Stucture/14. Queue(FIFO).js"></script> -->
-    <!-- <script src="./Data Stucture/15. Front and Rear Operations Queue.js"></script> -->
-    <!-- <script src="./Data Stucture/16. Circular Queue.js"></script> -->
-    <!-- <script src="./Data Stucture/17. Binary Search Iterative Approach.js"></script> -->
-    <!-- <script src="./Data Stucture/18. Binary Search Recursive Approach.js"></script> -->
-    <!-- <script src="./Data Stucture/19.  Descending Order Sorting.js"></script> -->
-    <!-- <script src="./Data Stucture/20. Insertion Sort.js"></script> -->
-    <!-- <script src="./Data Stucture/21. Sorting All Array Elements Except One.js"></script> -->
-    <!-- <script src="./Data Stucture/22. Bubble Sort With Recursion.js"></script> -->
-    <!-- <script src="./Data Stucture/23. Check Strings Are Anagram.js"></script> -->
-    <!-- <script src="./Data Stucture/24. Check String Is Palindrome.js"></script> -->
-    <!-- <script src="./Data Stucture/25. Maximum Occurring Character In String.js"></script> -->
-    <!-- <script src="./Data Stucture/26. Map Data Stucture.js"></script> -->
-    <!-- <script src="./Data Stucture/27. Set Data Stucture.js"></script> -->
-    <!-- <script src="./Data Stucture/28. Linked List.js"></script> -->
-    <script src="./Data Stucture/29.Binary Search Tree.js"></script>
-    
+<!-- <script src="./Data Stucture/1. Traversing(Read) and Accessing Array Elements.js"></script> -->
+<!-- <script src="./Data Stucture/2. Inserting Array Elements.js"></script> -->
+<!-- <script src="./Data Stucture/3. Delete Array Elements.js"></script> -->
+<!-- <script src="./Data Stucture/4. Linear Search Array Elements.js"></script> -->
+<!-- <script src="./Data Stucture/5. Merge Array Without Sorting.js"></script> -->
+<!-- <script src="./Data Stucture/6. Merge Array With Sorting.js"></script> -->
+<!-- <script src="./Data Stucture/7. Ascending Order Sorting Array.js"></script> -->
+<!-- <script src="./Data Stucture/8. Direct(Basic) Recursion.js"></script> -->
+<!-- <script src="./Data Stucture/9. InDirect Recursion.js"></script> -->
+<!-- <script src="./Data Stucture/10. Head and Tail Recursion.js"></script> -->
+<!-- <script src="./Data Stucture/11. Reverse Array With Recursion.js"></script> -->
+<!-- <script src="./Data Stucture/12. Stack(LIFO).js"></script> -->
+<!-- <script src="./Data Stucture/13. Reverse String With Stack.js"></script> -->
+<!-- <script src="./Data Stucture/14. Queue(FIFO).js"></script> -->
+<!-- <script src="./Data Stucture/15. Front and Rear Operations Queue.js"></script> -->
+<!-- <script src="./Data Stucture/16. Circular Queue.js"></script> -->
+<!-- <script src="./Data Stucture/17. Binary Search Iterative Approach.js"></script> -->
+<!-- <script src="./Data Stucture/18. Binary Search Recursive Approach.js"></script> -->
+<!-- <script src="./Data Stucture/19.  Descending Order Sorting.js"></script> -->
+<!-- <script src="./Data Stucture/20. Insertion Sort.js"></script> -->
+<!-- <script src="./Data Stucture/21. Sorting All Array Elements Except One.js"></script> -->
+<!-- <script src="./Data Stucture/22. Bubble Sort With Recursion.js"></script> -->
+<!-- <script src="./Data Stucture/23. Check Strings Are Anagram.js"></script> -->
+<!-- <script src="./Data Stucture/24. Check String Is Palindrome.js"></script> -->
+<!-- <script src="./Data Stucture/25. Maximum Occurring Character In String.js"></script> -->
+<!-- <script src="./Data Stucture/26. Map Data Stucture.js"></script> -->
+<!-- <script src="./Data Stucture/27. Set Data Stucture.js"></script> -->
+<!-- <script src="./Data Stucture/28. Linked List.js"></script> -->
+<!-- <script src="./Data Stucture/29.Binary Search Tree.js"></script> -->
+
 
 
 </head>
-
-<body>
-    <button class="intro">Click Me</button>
-</body>
 
 </html>
