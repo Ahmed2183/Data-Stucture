@@ -18,47 +18,47 @@ function add() {
 
 
 //Function Hoisting
-console.log(name);
+// console.log(name);
 var name = 'ahmed';
 
 myFun();
 function myFun() {
-    console.log(1 + 2);
+    // console.log(1 + 2);
 }
 
 
 //getElementById
 var element = document.getElementById('myName');  //-->myName is id name of <p> tag in html file
-console.log(element);
+console.log("Element:", element);
 
 
 //querySelector
 var element1 = document.querySelector('h1');  //-->get from html file, if we have multiple h1 tag then its return first h1 tag
-console.log(element1);
+console.log("Element 1:", element1);
 
 //querySelectorAll
 var element2 = document.querySelectorAll('h1');  //-->get from html file, to display all h1 tags
-console.log(element2);
+console.log("Element 2 to display all h1 tags:", element2);
 
 //querySelectorAll to get tag text
 var element2 = document.querySelectorAll('h1')[2].innerText;  //-->get from html file, to display tag text
-console.log(element2);
+console.log("Element 2 to display tag text:", element2);
 
 //querySelectorAll to get specific tag
 var element3 = document.querySelectorAll('.head');  //-->get from html file, head is class name, For multiple tags with class name of head
-console.log(element3);
+console.log("Element 3 For multiple tags:", element3);
 
 //querySelector to get specific tag
 var element3 = document.querySelector('.dom');  //-->get from html file, dom is class name, For single tag with class name of dom
-console.log(element3);
+console.log("Element 3 For single tag:", element3);
 
 
 //addEventListener: If you write script tag before body tag in html then use this
 function init() {
     var ele = document.querySelector('.dom');  //-->get from html file, dom is class name, For single tag with class name of dom
-    console.log(ele);
+    console.log("For script tag and get single tag:", ele);
 }
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded', init);
 
 //textContent To change any text of tag
 element3.textContent = "New World";
@@ -71,10 +71,83 @@ console.dir(element4);
 
 
 //Events: addEventListener:  To make clickable any element
-var element5 = document.querySelector('.intro');  //--> 1. Get Something
+//For Single Button
+
+// var element5 = document.querySelector('.intro');  //--> 1. Get Something
+// function hitMe() { //--> 3. Do Something
+//     console.log("I am Button");
+// }
+// element5.addEventListener('click',hitMe);  //--> 2. Listen something
+
+//Events: addEventListener:  To make clickable multiple elements
+//For Multiple Buttons
+var element5 = document.querySelectorAll('.intro');  //--> 1. Get Something
+console.dir(element5);
+
 function hitMe() { //--> 3. Do Something
     console.log("I am Button");
 }
-element5.addEventListener('click',hitMe);  //--> 2. Listen something
+
+element5.forEach((result) => {
+    result.addEventListener('click', hitMe);  //--> 2. Listen something
+});
+
+
+//Object Examples
+
+var p1 = {
+    age: 20
+}
+
+var p2 = {
+    age: 20
+}
+
+p1 = p2;  // --> Refrence of p1 copy in p2
+
+if (p1 == p2) {
+    console.log("Welcome Object")
+}
+
+//With const keyword
+const p3 = {
+    age: 20
+}
+// p3.age = 25;  
+// console.log(p3);  //output: 25
+
+// p3 = {
+//     age:25  
+// }
+
+// console.log(p3); //output: Error: Assignment to constant variable
+
+
+// var name1 = "Ahmed";
+// var name2 = "Raza";
+
+// name1 = name2;
+// console.log(name1);
+// console.log(name2);
+
+//To break Refrence
+p1 = { ...p2 };  // 1st Method To break refrence using spread, Without this changing value also effect on p2
+// p1 = Object.assign({},p2); //2nd Method To break refrence
+
+p1.age = 30;
+console.log(p1);
+console.log(p2);
+
+
+//Check Object keys, values and length
+var objLength = {
+    age: 23,
+    name: "ahmed",
+    emp: 20
+}
+
+console.log("Object Keys:",Object.keys(objLength));  
+console.log("Object Keys Length:",Object.keys(objLength).length);  
+console.log("Object Values:",Object.values(objLength));  
 
 
