@@ -103,7 +103,7 @@ var p2 = {
     age: 25
 }
 
-p1 = p2;  // --> Refrence of p1 copy in p2
+p1 = p2;  // --> Refrence of p2 copy/pass in p1
 
 p1.age = 100; // --> Updated value also effect on p2 object
 
@@ -156,6 +156,24 @@ p4.age = 30; // --> Updated value not effect on p5 object
 console.log("With using spread operator P4:",p4);
 console.log("With using spread operator P5:",p5);
 
+// Calling multiple objects in spread operator
+//Note jo keys sab objects mai same hogi wo eik hi bari show hongi or spread operator mai jo object last mai spread hnga usi ki key r value show hngi jo keys same hai sirf wohi
+var p6 = {
+    age: 40,
+    name:'ahmed'
+}
+
+var p7 = {
+    age: 70,
+    name:'raza'
+}
+var p8 = {
+    age: 90,
+    emp:'abc'
+}
+var p9 = { ...p8, ...p6, ...p7}; // ---> 
+console.log("With using spread operator P9:",p9);
+
 
 //Check Object keys, values and length
 var objLength = {
@@ -168,4 +186,56 @@ console.log("Object Keys:",Object.keys(objLength));
 console.log("Object Keys Length:",Object.keys(objLength).length);  
 console.log("Object Values:",Object.values(objLength));  
 
+
+
+//Freeze Object means if you want not change value
+var p10 = {
+    age: 100,
+    name:'raza'
+}
+
+// p10.age = 10;  // --> Before freeze value will change
+
+var p11 = Object.freeze(p10);
+
+p10.age = 200; // --> After freeze value not change
+console.log("Freeze Object P10:",p10);
+
+
+//Create Object Keys
+
+var getValue = prompt('Enter object key name');  // --> prompt take string
+var getData = prompt('Enter Address');  // --> prompt take string
+
+var obj1 = {
+    age: 45,
+    name: "Uzair"
+}
+
+obj1['First-Name'] = "Ahmed"; //Create Object Key
+obj1.LastName = "Raza"; //Create Object Key
+
+
+console.log("Object Key Value:",obj1[getValue]); // --> Get key and display key value
+
+obj1.address = getData;
+console.log("Object 1 Data:",obj1);
+
+//Variable Example
+var name1 = 'abc';
+function abc(name) {
+    var name1 = 'xyz';
+    console.log(name1);  //xyz
+}
+abc(name1);
+console.log(name1);  //abc
+
+//Object Examples
+var obj = { name: 'Loop' };
+function objCall(name){
+    var obj = 'While';
+    console.log(obj); //While
+}
+objCall(obj);
+console.log(obj); //Loop
 
