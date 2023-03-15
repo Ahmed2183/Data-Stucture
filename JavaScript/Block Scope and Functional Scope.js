@@ -100,43 +100,61 @@ var p1 = {
 }
 
 var p2 = {
-    age: 20
+    age: 25
 }
 
 p1 = p2;  // --> Refrence of p1 copy in p2
 
+p1.age = 100; // --> Updated value also effect on p2 object
+
+console.log("Without using spread operator P1:",p1);
+console.log("Without using spread operator P2:",p2);
+
 if (p1 == p2) {
     console.log("Welcome Object")
+}
+else {
+    console.log("Not Welcome Object")
 }
 
 //With const keyword
 const p3 = {
-    age: 20
+    age: 30
 }
-// p3.age = 25;  
-// console.log(p3);  //output: 25
+p3.age = 35;  // --> Update const keyword object key
+console.log("Update const keyword object key P3:",p3);  //output: 35
 
+//If we update const keyword object
 // p3 = {
 //     age:25  
 // }
 
-// console.log(p3); //output: Error: Assignment to constant variable
+// console.log("Updated const keyword object",p3); //output: Error: Assignment to constant variable
 
 
-// var name1 = "Ahmed";
-// var name2 = "Raza";
+//String Compare
+var name1 = "Ahmed";
+var name2 = "Raza";
 
-// name1 = name2;
-// console.log(name1);
-// console.log(name2);
+name1 = name2;
+console.log("String 1:",name1);
+console.log("String 2:",name2);
 
 //To break Refrence
-p1 = { ...p2 };  // 1st Method To break refrence using spread, Without this changing value also effect on p2
-// p1 = Object.assign({},p2); //2nd Method To break refrence
+var p4 = {
+    age: 40
+}
 
-p1.age = 30;
-console.log(p1);
-console.log(p2);
+var p5 = {
+    age: 50
+}
+p4 = { ...p5 };  // 1st Method To break refrence using spread operator, Without this changing value also effect on p5
+// p4 = Object.assign({},p5); //2nd Method To break refrence, its old method
+
+p4.age = 30; // --> Updated value not effect on p5 object
+
+console.log("With using spread operator P4:",p4);
+console.log("With using spread operator P5:",p5);
 
 
 //Check Object keys, values and length
