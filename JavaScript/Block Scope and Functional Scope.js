@@ -234,8 +234,19 @@ console.log(name1);  //abc
 var obj = { name: 'Loop' };
 function objCall(name){
     var obj = 'While';
-    console.log(obj); //While
+    console.log(obj); //output: While
 }
 objCall(obj);
-console.log(obj); //Loop
+console.log(obj); //output: Loop
 
+
+//Closure Example: We access inner function outside the function
+function myScore() { // ---> Outer Function
+    var score = 1;
+    return function abc() { // ---> Inner Function
+        console.log("Score:",score++);
+    }
+}
+var hockey = myScore(); // -->Create instance and store inner function in variable
+// console.log(hockey);
+hockey();
