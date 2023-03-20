@@ -291,7 +291,7 @@ class Employee {  //class name of 1st letter is capital, class directly call con
         this.address = empAddress
     }
     func() {
-        console.log("Employee name is",this.name);
+        console.log("Employee name is", this.name);
     }
 
     static word = "ABC"  // static only call with class name
@@ -305,5 +305,24 @@ console.log("Employee1", employee1);
 var employee2 = new Employee("Uzair Sattar", 27, "Abc");
 console.log(employee2.func());
 
-console.log("Staic Keyword",Employee.word);  //--> Call static
-console.log("Staic Keyword",Employee.getAge);  //--> Call static
+console.log("Staic Keyword", Employee.word);  //--> Call static
+console.log("Staic Keyword", Employee.getAge);  //--> Call static
+
+
+//Inheritance
+class Parent {
+    constructor(age) {
+        this.age = age
+        this.name = "ABC"
+        this.address = "Gulshan"
+    }
+}
+
+class Child extends Parent {    // extends keyword means to connect with Parent class
+    constructor(age) {
+        super(age)    // ---> super ka through ham parent class sa chezay mangwa sktay hai, jesa parent class sa age mangwai
+    }
+}
+
+var _child = new Child(25);
+console.log("Inheritance",_child);
