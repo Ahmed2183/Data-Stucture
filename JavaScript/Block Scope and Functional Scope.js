@@ -107,8 +107,8 @@ p1 = p2;  // --> Refrence of p2 copy/pass in p1
 
 p1.age = 100; // --> Updated value also effect on p2 object
 
-console.log("Without using spread operator P1:",p1);
-console.log("Without using spread operator P2:",p2);
+console.log("Without using spread operator P1:", p1);
+console.log("Without using spread operator P2:", p2);
 
 if (p1 == p2) {
     console.log("Welcome Object")
@@ -122,7 +122,7 @@ const p3 = {
     age: 30
 }
 p3.age = 35;  // --> Update const keyword object key
-console.log("Update const keyword object key P3:",p3);  //output: 35
+console.log("Update const keyword object key P3:", p3);  //output: 35
 
 //If we update const keyword object
 // p3 = {
@@ -137,8 +137,8 @@ var name1 = "Ahmed";
 var name2 = "Raza";
 
 name1 = name2;
-console.log("String 1:",name1);
-console.log("String 2:",name2);
+console.log("String 1:", name1);
+console.log("String 2:", name2);
 
 //To break Refrence
 var p4 = {
@@ -153,26 +153,26 @@ p4 = { ...p5 };  // 1st Method To break refrence using spread operator, Without 
 
 p4.age = 30; // --> Updated value not effect on p5 object
 
-console.log("With using spread operator P4:",p4);
-console.log("With using spread operator P5:",p5);
+console.log("With using spread operator P4:", p4);
+console.log("With using spread operator P5:", p5);
 
 // Calling multiple objects in spread operator
 //Note jo keys sab objects mai same hogi wo eik hi bari show hongi or spread operator mai jo object last mai spread hnga usi ki key r value show hngi jo keys same hai sirf wohi
 var p6 = {
     age: 40,
-    name:'ahmed'
+    name: 'ahmed'
 }
 
 var p7 = {
     age: 70,
-    name:'raza'
+    name: 'raza'
 }
 var p8 = {
     age: 90,
-    emp:'abc'
+    emp: 'abc'
 }
-var p9 = { ...p8, ...p6, ...p7}; // ---> 
-console.log("With using spread operator P9:",p9);
+var p9 = { ...p8, ...p6, ...p7 }; // ---> 
+console.log("With using spread operator P9:", p9);
 
 
 //Check Object keys, values and length
@@ -182,16 +182,16 @@ var objLength = {
     emp: 20
 }
 
-console.log("Object Keys:",Object.keys(objLength));  
-console.log("Object Keys Length:",Object.keys(objLength).length);  
-console.log("Object Values:",Object.values(objLength));  
+console.log("Object Keys:", Object.keys(objLength));
+console.log("Object Keys Length:", Object.keys(objLength).length);
+console.log("Object Values:", Object.values(objLength));
 
 
 
 //Freeze Object means if you want not change value
 var p10 = {
     age: 100,
-    name:'raza'
+    name: 'raza'
 }
 
 // p10.age = 10;  // --> Before freeze value will change
@@ -199,7 +199,7 @@ var p10 = {
 var p11 = Object.freeze(p10);
 
 p10.age = 200; // --> After freeze value not change
-console.log("Freeze Object P10:",p10);
+console.log("Freeze Object P10:", p10);
 
 
 //Create Object Keys
@@ -216,10 +216,10 @@ obj1['First-Name'] = "Ahmed"; //Create Object Key
 obj1.LastName = "Raza"; //Create Object Key
 
 
-console.log("Object Key Value:",obj1[getValue]); // --> Get key and display key value
+console.log("Object Key Value:", obj1[getValue]); // --> Get key and display key value
 
 obj1.address = getData;
-console.log("Object 1 Data:",obj1);
+console.log("Object 1 Data:", obj1);
 
 //Variable Example
 var name1 = 'abc';
@@ -232,7 +232,7 @@ console.log(name1);  //abc
 
 //Object Examples
 var obj = { name: 'Loop' };
-function objCall(name){
+function objCall(name) {
     var obj = 'While';
     console.log(obj); //output: While
 }
@@ -244,9 +244,66 @@ console.log(obj); //output: Loop
 function myScore() { // ---> Outer Function
     var score = 1;
     return function abc() { // ---> Inner Function
-        console.log("Score:",score++);
+        console.log("Score:", score++);
     }
 }
 var hockey = myScore(); // -->Create instance and store inner function in variable
 // console.log(hockey);
 hockey();
+
+
+
+// ECMAScript 5 Method(Constructor Function)
+
+//Constructor Function
+//In Constructor Function name of 1st letter is capital
+
+function Student(studentName, studentAge, studentAddress) {
+    //this keyword work like variable but this keyword is public means we access outside the function only used in constructor function
+    this.name = studentName
+    this.age = studentAge
+    this.address = studentAddress
+    this.func = function () {
+        console.log("My name is", this.name);
+    }
+
+}
+
+//Create instance
+var student1 = new Student("Ahmed", 26, "Abc");
+console.log("Student1", student1);
+
+var student2 = new Student("Raza", 26, "Asd");
+console.log("Student2", student2);
+
+var student3 = new Student("Uzair", 27, "Xyz");
+console.log("Student3", student3);
+
+var student4 = new Student("Sattar", 27, "qwe");
+console.log(student4.func());
+
+
+// ECMAScript 6 Method(Class)
+class Employee {  //class name of 1st letter is capital, class directly call constructor function
+    constructor(empName, empAge, empAddress) {
+        this.name = empName
+        this.age = empAge
+        this.address = empAddress
+    }
+    func() {
+        console.log("Employee name is",this.name);
+    }
+
+    static word = "ABC"  // static only call with class name
+    static getAge = this.age;  // its undefined not access
+}
+
+//Create instance without instance we not access
+var employee1 = new Employee("Ahmed raza", 26, "Xyz");
+console.log("Employee1", employee1);
+
+var employee2 = new Employee("Uzair Sattar", 27, "Abc");
+console.log(employee2.func());
+
+console.log("Staic Keyword",Employee.word);  //--> Call static
+console.log("Staic Keyword",Employee.getAge);  //--> Call static
