@@ -326,3 +326,28 @@ class Child extends Parent {    // extends keyword means to connect with Parent 
 
 var _child = new Child(25);
 console.log("Inheritance",_child);
+
+
+//this keyword
+var one = document.querySelector('.one');
+var two = document.querySelector('.two');
+
+one.addEventListener('click',callThis);
+two.addEventListener('click',callThis);
+
+function callThis() {  //-->Parent function
+    console.log("Inside",this);  //--> this is equal to variable one and variable two
+
+    //Simple function mai ham parent function ki chza access nhi krskty, islia variable mai store krky use krskty h
+    // var _this = this;
+    // setTimeout(function() { 
+    //     _this.innerText = "Ahmed";  //-->To Change button text
+    // },2000);
+
+    setTimeout(() => {  //--> Arrow function apny parent function ka scope lekr chlta ha, that's why we access this keyword in arrow function
+        this.innerText = "Raza";  //-->To Change button text
+    },2000);
+   
+}
+
+console.log("Outside",this);
