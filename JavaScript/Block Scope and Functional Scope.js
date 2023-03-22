@@ -325,18 +325,18 @@ class Child extends Parent {    // extends keyword means to connect with Parent 
 }
 
 var _child = new Child(25);
-console.log("Inheritance",_child);
+console.log("Inheritance", _child);
 
 
 //this keyword
 var one = document.querySelector('.one');
 var two = document.querySelector('.two');
 
-one.addEventListener('click',callThis);
-two.addEventListener('click',callThis);
+one.addEventListener('click', callThis);
+two.addEventListener('click', callThis);
 
 function callThis() {  //-->Parent function
-    console.log("Inside",this);  //--> this is equal to variable one and variable two
+    console.log("Inside", this);  //--> this is equal to variable one and variable two
 
     //Simple function mai ham parent function ki chza access nhi krskty, islia variable mai store krky use krskty h
     // var _this = this;
@@ -346,8 +346,91 @@ function callThis() {  //-->Parent function
 
     setTimeout(() => {  //--> Arrow function apny parent function ka scope lekr chlta ha, that's why we access this keyword in arrow function
         this.innerText = "Raza";  //-->To Change button text
-    },2000);
-   
+    }, 2000);
+
 }
 
-console.log("Outside",this);
+console.log("Outside", this);
+
+
+//Prototypes
+//Create Own Prototype method
+function User() {  //-->Constructor Function, start with Capital letter
+    this.age = 25;
+    this.city = 'Karachi';
+}
+
+//Add property in Prototype 
+User.prototype.name = 'Ahmed';
+
+//Add funtion in Prototype
+User.prototype.add = function (a, b) {  //--> add is new Prototype function name
+    return a + b;
+}
+
+//Create instance
+var user1 = new User();
+var user2 = new User();
+
+//Add new data in Constructor Function
+user1.address = 'ABC';
+
+console.log("User1", user1);
+console.log("User2", user2);
+
+//Get property and function resukt
+console.log("User1 Name:", user1.name);
+console.log("Function Prototype Result:", user1.add(2, 3));
+
+
+//Example 2
+function Calculator() { //-->Constructor Function, start with Capital letter
+
+}
+
+//Add funtions in Prototype
+Calculator.prototype.addition = function (a, b) {
+    return a + b;
+}
+Calculator.prototype.subtraction = function (a, b) {
+    return a - b;
+}
+
+//Create instance
+var calc = new Calculator();
+
+console.log("Addition of number is:", calc.addition(5, 5));
+console.log("Subtraction of number is:", calc.subtraction(5, 5));
+
+
+
+//Access Parent Function properties in Child Function
+
+//Parent Function
+function Company() {  //-->Constructor Function
+    this.companyName = "PanaCloud";
+}
+
+//Add property in Prototype 
+Company.prototype.country = "Pakistan";
+
+//Child Function
+function Customer() {  //-->Constructor Function
+    //Access Parent Function property:
+    //--> call method is used to access Parent Function properties, this keyword mai pura ka pura refrence parent function ka mil jai ga
+    Company.call(this);
+    this.userName = "Raza";
+}
+
+//Access Parent Function Prototype
+Customer.prototype = Object.create(Company.prototype);
+Customer.constructor = Customer; //--> Set Again Child(Customer Function) constructor
+//After access Parent Function Prototype now Customer function has two prototype one is Company Prototype and Second his own
+
+//Create instance
+var company = new Company();
+var customer = new Customer();
+
+console.log(company);
+console.log(customer);
+
