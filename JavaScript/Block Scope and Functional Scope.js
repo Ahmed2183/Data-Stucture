@@ -434,3 +434,29 @@ var customer = new Customer();
 console.log(company);
 console.log(customer);
 
+
+//Callback Hell: Eik setTimeout mai multiples setTimeout, promise handle this problem
+setTimeout(() => {
+    console.log("Wait 2 seconds");
+
+    setTimeout(() => {  //-->In setTimeout there are two parameters one is callback function and second is 2000
+        console.log("Wait another 2 seconds");
+    }, 2000);
+
+}, 2000);
+
+
+//Sync Code Bad code
+// console.log(1);
+// const response = fetch('https://dummyjson.com/products');
+// const json = response.json();
+// console.log(json);  //output: Error
+// console.log(2);
+
+//Async Code
+console.log(1);
+fetch('https://dummyjson.com/products')  //-->fetch url, dummy api url
+    .then(    //--> .then is promise, promise promise krta ha kai wo apko response lakr dai ga
+        (response) => { console.log(response) }  //-->callback:Functions that call in parameter
+    )
+console.log(2);
